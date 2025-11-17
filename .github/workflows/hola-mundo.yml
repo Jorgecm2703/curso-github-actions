@@ -1,4 +1,5 @@
 name: Hola Mundo
+run-name: ¡Hola Mundo desde GitHub Actions!
 on: [push]
 jobs:
   hola-mundo:
