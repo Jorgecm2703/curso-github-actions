@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+        - main
+        - aprendiendo-github-actions
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.py'
+  workflow_dispatch:
+
+jobs:
+    triggers-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Definir variable
+              run: echo "TRIGGER_NAME=${{ github.event_name }}" >> $GITHUB_ENV
+            - name: Imprimir variable
+              run: |
+                echo "TRIGGER_NAME: $TRIGGER_NAME"
