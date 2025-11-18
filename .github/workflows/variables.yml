@@ -1,0 +1,24 @@
+name: Variables
+run-name: ¡Estoy aprendiendo a usar Variables!
+on:
+    workflow_dispatch:
+env:
+    NOMBRE: 'Jorge'
+    EDAD: 20
+    LENGUAJE_FAVORITO: 'Python'
+jobs:
+    variables-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Envs test
+              run: |
+                echo "Nombre: ${{ env.NOMBRE }}"
+                echo "Edad: ${{ env.EDAD }}"
+                echo "Lenguaje favorito: ${{ env.LENGUAJE_FAVORITO }}"
+            - name: Variables test
+              run: |
+                echo "Nombre: ${{ vars.NOMBRE }}"
+                echo "Edad: ${{ vars.EDAD }}"
+                echo "Lenguaje favorito: ${{ vars.LENGUAJE_FAVORITO }}"
