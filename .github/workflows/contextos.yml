@@ -1,0 +1,26 @@
+name: Contextos
+run-name: ¡Estoy aprendiendo a usar Contextos!
+on:
+    push:
+        branches:
+            - aprendiendo-github-actions
+env:
+    NOMBRE: 'Jorge'
+    EDAD: 20
+    LENGUAJE_FAVORITO: 'Python'
+jobs:
+    contexto-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Contextos github
+              run: |
+                echo "Event name: ${{ github.event_name }}"
+                echo "Event path: ${{ github.event_path }}"
+                echo "Event ref: ${{ github.ref }}"
+            - name: Contextos envs
+              run: |
+                echo "Nombre: ${{ env.NOMBRE }}"
+                echo "Edad: ${{ env.EDAD }}"
+                echo "Lenguaje favorito: ${{ env.LENGUAJE_FAVORITO }}"
