@@ -19,4 +19,4 @@ jobs:
               run: echo "TRIGGER_NAME=${{ github.event_name }}" >> $GITHUB_ENV
             - name: Imprimir variable
               run: |
-                echo "TRIGGER_NAME: ${{ env.TRIGGER_NAME }}"
+                echo "TRIGGER_NAME: $TRIGGER_NAME"
